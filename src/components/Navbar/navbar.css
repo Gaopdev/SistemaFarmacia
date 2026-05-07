@@ -1,0 +1,22 @@
+.navbar{
+    background: linear-gradient(90deg, #0d47a1, #1976d2);
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid #0b3a80;
+}
+.navbar h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.navbar p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}

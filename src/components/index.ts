@@ -1,0 +1,5 @@
+export {default as LoginComponent} from "./Login/login"
+export {default as RegisterComponent} from "./Login/register"
+export {default as GestionRComponent} from "./GestionR/gestionR"
+export {default as NavbarComponent} from "./Navbar/navbar"
+export {default as FooterComponent} from "./Footer/footer"

@@ -1,0 +1,27 @@
+.footer {
+    background: linear-gradient(90deg, #0d47a1, #1976d2);
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+    border-top: 3px solid #0b3a80;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+.footer p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+.footer span {
+    font-weight: bold;
+    color: #bbdefb;
+}
+.footer .btn:hover {
+    background-color: #c62828;
+    transform: scale(1.05);
+}
