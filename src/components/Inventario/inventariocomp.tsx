@@ -12,9 +12,10 @@ type MedicamentoUI = {
 
 type Props = {
     products: MedicamentoUI[];
+    recargar: () => Promise<void>;
 };
 
-function InventarioComponent({products}: Props) {
+function InventarioComponent({products, recargar}: Props) {
     const [modalOpen, setModalOpen] = useState(false);
     const [modalAgregar, setModalAgregar] = useState(false);
     const [editData, setEditData] = useState<MedicamentoUI | null>(null);
@@ -32,6 +33,7 @@ function InventarioComponent({products}: Props) {
             stock: nuevoMed.stock,
             tipo: nuevoMed.categoria
         });
+        await recargar();
         setModalAgregar(false);
     };
     const handleEditar = (item: MedicamentoUI) => {
@@ -46,10 +48,13 @@ function InventarioComponent({products}: Props) {
             stock: editData.stock,
             tipo: editData.categoria
         })
+        await recargar();
         setModalOpen(false);
     }
     const handleEliminar = async (id: number) => {
+        console.log("ELIMINANDO", id);
         await eliminarMedicamento(id);
+        await recargar();
     };
     return (
         <div className="container-inventario">

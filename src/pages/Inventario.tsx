@@ -31,13 +31,22 @@ function Inventario(){
 
     cargar();
 }, []);
+
+    const cargarMedicamentos = async () => {
+        const data = await obtenerMedicamentos();
+        setProducts(data);
+    };
+    useEffect(() => {
+        cargarMedicamentos();
+    }, []);
     return(
     <div className="page-container">
         <NavbarComponent />
         <div className="page-content">
             <SearchComponent alEscribir={alEscribir}/>
             <InventarioComponent
-            products={productosFiltrados}/>
+            products={productosFiltrados}
+            recargar={cargarMedicamentos}/>
         </div>
         <FooterComponent/>
     </div>

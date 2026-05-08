@@ -150,8 +150,6 @@ function useDatos(){
             `);
 
             if (error) throw error;
-            console.log(data);
-            console.log("DATA COMPLETA:", data);
 
             const lista: MedicamentoUI[] = (data || []).map((p: MedicamentoDB) => ({
                 id: p.id,
@@ -202,7 +200,10 @@ function useDatos(){
                 .delete()
                 .eq("id", id);
 
-            if (error) throw error;
+            if (error) {
+    console.log(error);
+    throw error;
+}
             setLoading(false);
             return true;
         } catch (err: any) {
