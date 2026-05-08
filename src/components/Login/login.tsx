@@ -3,7 +3,7 @@ import "./login.css";
 import { useNavigate } from "react-router-dom";
 import  useDatos  from "../../hooks/useDatos";
 
-function LoginComponent(): JSX.Element {
+function LoginComponent() {
     const [nombre, setNombre] = useState("");
     const [contrasena, setContrasena] = useState("");
 
@@ -52,7 +52,7 @@ function LoginComponent(): JSX.Element {
             </div>
 
             <button type="submit" className="btn-login" disabled={loading}>
-                {loading ? "Entrando..." : "Entrar"}
+                Entrar
             </button>
             </form>
 

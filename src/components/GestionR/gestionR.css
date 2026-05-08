@@ -1,0 +1,59 @@
+.container-cards {
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.col {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* CARD estilo blanco moderno */
+.card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+/* hover elegante */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(25, 118, 210, 0.15);
+    border-color: #1976d2;
+}
+
+/* títulos */
+.titulos-dash {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 10px;
+}
+
+/* valores grandes */
+.card h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0d47a1;
+}
+
+/* pequeños detalles visuales */
+.card::before {
+    content: "";
+    display: block;
+    height: 4px;
+    width: 60px;
+    background: linear-gradient(90deg, #1976d2, #42a5f5);
+    margin: 0 auto 10px auto;
+    border-radius: 10px;
+}

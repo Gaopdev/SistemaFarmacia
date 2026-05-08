@@ -1,15 +1,13 @@
-import {GestionRComponent} from "../components/index"
 import {NavbarComponent} from "../components/index"
 import {FooterComponent} from "../components/index"
-import {ListaInvComponent} from "../components/index"
+import {InventarioComponent} from "../components/index"
 
-function Dashboard(){
+function Inventario(){
     return(
     <div className="page-container">
         <NavbarComponent />
         <div className="page-content">
-            <GestionRComponent/>
-            <ListaInvComponent />
+            <InventarioComponent/>
         </div>
         <FooterComponent/>
     </div>
@@ -17,4 +15,4 @@ function Dashboard(){
 
     )
 }
-export default Dashboard
+export default Inventario

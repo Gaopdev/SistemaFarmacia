@@ -1,0 +1,72 @@
+.container-lista {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+.container-lista h2 {
+    color: #1565c0;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+.loading {
+    text-align: center;
+    color: #1976d2;
+    font-weight: bold;
+}
+
+.lista-medicamentos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.medicamento-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f5f9ff;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    border-left: 5px solid #1976d2;
+    transition: 0.3s ease;
+}
+.medicamento-item:hover {
+    background: #e3f2fd;
+    transform: translateY(-2px);
+}
+.medicamento-nombre {
+    font-weight: bold;
+    color: #0d47a1;
+}
+.medicamento-stock {
+    background: #1976d2;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.btn-info {
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-info:hover {
+  background: #0d47a1;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-info:active {
+  transform: scale(0.98);
+}

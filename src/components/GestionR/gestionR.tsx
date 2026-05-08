@@ -1,6 +1,23 @@
+import useDatos from "../../hooks/useDatos"
 import "./gestionR.css"
+import { useEffect, useState } from "react"
 
 function GestionRComponent(){
+    const {obtenerResumenInventraio} = useDatos();
+    const [total, setTotal] = useState(0);
+    const [critico, setCritico] = useState(0);
+
+    useEffect(()=>{
+        cargarDatos();
+    },[]);
+
+    const cargarDatos = async() => {
+        const res = await obtenerResumenInventraio();
+
+        setTotal(res.totalValor);
+        setCritico(res.stockCritico);
+    }
+
     return(
         <div className="container-cards">
             <div className="row">
@@ -9,7 +26,7 @@ function GestionRComponent(){
                         <h1 className="titulos-dash">
                             Valor total de Mercancia 💵
                         </h1>
-                        <h2>${}</h2>
+                        <h2>${total}</h2>
                     </div>
                 </div>
                 <div className="col">
@@ -17,15 +34,7 @@ function GestionRComponent(){
                         <h1 className="titulos-dash">
                             Stock Critico 📉
                         </h1>
-                        <h2>{}</h2>
-                    </div>
-                </div>
-                <div className="col">
-                    <div className="card">
-                        <h1 className="titulos-dash">
-                            Agregar Medicamentos
-                        </h1>
-                        <button className="btn btn-info">Agregar</button>
+                        <h2>{critico}</h2>
                     </div>
                 </div>
             </div>
