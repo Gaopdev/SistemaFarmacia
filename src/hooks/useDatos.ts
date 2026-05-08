@@ -6,11 +6,20 @@ type Usuario = {
     nombre: string;
     contrasena: string;
 };
-type Medicamento = {
+type MedicamentoDB = {
     id: number;
     nombre: string;
     stock: number;
     precio: number;
+    id_tipo: number;
+    tipo: string; 
+};
+type MedicamentoUI = {
+    id: number;
+    titulo: string;
+    precio: number;
+    stock: number;
+    categoria: string;
 };
 
 function useDatos(){
@@ -127,6 +136,104 @@ function useDatos(){
         }
     }
 
+    const obtenerMedicamentos = async() => {
+        setLoading(true);
+        setError(null);
+
+        try{
+            const {data, error} = await supabase.from("medicamento")
+            .select(`
+                id,
+                nombre,
+                stock,
+                precio,
+                tipo
+            `);
+
+            if (error) throw error;
+            console.log(data);
+            console.log("DATA COMPLETA:", data);
+
+            const lista: MedicamentoUI[] = (data || []).map((p: MedicamentoDB) => ({
+                id: p.id,
+                titulo: p.nombre,
+                precio: p.precio,
+                stock: p.stock,
+                categoria: p.tipo || "sin categoria"
+            }));
+            
+            setLoading(false);
+
+            return lista;
+        } catch (err: any) {
+        setError(err.message);
+        return [];
+        }
+    };
+
+    const actualizarMedicamento = async (id: number, data: Partial<MedicamentoDB>) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+        const { data: result, error } = await supabase
+            .from("medicamento")
+            .update(data)
+            .eq("id", id)
+            .select()
+            .single();
+
+        if (error) throw error;
+        setLoading(false);
+
+        return result;
+    } catch (err: any) {
+        setError(err.message);
+        return null;
+    }
+};
+
+    const eliminarMedicamento = async (id: number) => {
+        setLoading(true);
+        setError(null);
+
+        try {
+            const { error } = await supabase
+                .from("medicamento")
+                .delete()
+                .eq("id", id);
+
+            if (error) throw error;
+            setLoading(false);
+            return true;
+        } catch (err: any) {
+            setError(err.message);
+            return false;
+        }
+    };
+
+    const agregarMedicamento = async (data: Omit<MedicamentoDB, "id">) => {
+        setLoading(true);
+        setError(null);
+
+        try {
+            const { data: result, error } = await supabase
+                .from("medicamento")
+                .insert([data])
+                .select()
+                .single();
+
+            if (error) throw error;
+
+            return result;
+        } catch (err: any) {
+            setError(err.message);
+            return null;
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return {
         registrarUsuario,
         loginUsuario,
@@ -135,7 +242,11 @@ function useDatos(){
         error,
         user,
         obtenerMedList,
-        obtenerResumenInventraio
+        obtenerResumenInventraio,
+        obtenerMedicamentos,
+        actualizarMedicamento,
+        eliminarMedicamento,
+        agregarMedicamento
     };
 }
 export default useDatos

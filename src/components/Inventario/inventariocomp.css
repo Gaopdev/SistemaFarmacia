@@ -1,0 +1,135 @@
+.container-inventario {
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #f7f9fc;
+}
+.tabla-inv {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+.card-medicamento {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: 0.2s ease;
+}
+.card-medicamento:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+.info h3 {
+    margin: 0;
+    font-size: 18px;
+}
+.info p {
+    margin: 3px 0;
+}
+.stock-normal {
+    color: #2e7d32;
+    font-weight: bold;
+}
+.stock-rojo {
+    background: #e53935;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-block;
+}
+.acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.btn-editar {
+    background: #1976d2;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-editar:hover {
+    background: #125aa0;
+}
+.btn-eliminar {
+    background: #d32f2f;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-eliminar:hover {
+    background: #9a0007;
+}
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+}
+.modal {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.modal input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.2s;
+}
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.modal-actions button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+.modal-actions button:first-child {
+    background: #1976d2;
+    color: white;
+}
+.modal-actions button:last-child {
+    background: #e0e0e0;
+}
+.btn-agregar {
+    background: #1976d2;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: fit-content;
+    transition: 0.2s ease;
+}
+
+.btn-agregar:hover {
+    background: #125aa3;
+    transform: translateY(-2px);
+}

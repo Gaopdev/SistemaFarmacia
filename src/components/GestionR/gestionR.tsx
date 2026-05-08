@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 function GestionRComponent(){
     const {obtenerResumenInventraio} = useDatos();
     const [total, setTotal] = useState(0);
-    const [critico, setCritico] = useState(0);
+    const [critico, setCritico] = useState<any[]>([]);
 
     useEffect(()=>{
         cargarDatos();
@@ -34,7 +34,7 @@ function GestionRComponent(){
                         <h1 className="titulos-dash">
                             Stock Critico 📉
                         </h1>
-                        <h2>{critico}</h2>
+                        <h2>{critico.length}</h2>
                     </div>
                 </div>
             </div>
