@@ -52,7 +52,6 @@ function InventarioComponent({products, recargar}: Props) {
         setModalOpen(false);
     }
     const handleEliminar = async (id: number) => {
-        console.log("ELIMINANDO", id);
         await eliminarMedicamento(id);
         await recargar();
     };
