@@ -25,7 +25,8 @@ function InventarioComponent({products, recargar}: Props) {
         titulo: "",
         precio: 0,
         stock: 0,
-        categoria: ""
+        categoria: "",
+        des: ""
     });
     const guardarNuevo = async () => {
         await agregarMedicamento({
@@ -40,7 +41,8 @@ function InventarioComponent({products, recargar}: Props) {
                 titulo: "",
                 precio: 0,
                 stock: 0,
-                categoria: ""
+                categoria: "",
+                desc:""
         });
         setModalAgregar(false);
     };
