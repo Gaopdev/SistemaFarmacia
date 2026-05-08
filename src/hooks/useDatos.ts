@@ -11,7 +11,8 @@ type MedicamentoDB = {
     nombre: string;
     stock: number;
     precio: number;
-    tipo: string; 
+    tipo: string;
+    desc: string;
 };
 type MedicamentoUI = {
     id: number;
@@ -19,6 +20,7 @@ type MedicamentoUI = {
     precio: number;
     stock: number;
     categoria: string;
+    desc: string
 };
 
 function useDatos(){
@@ -95,7 +97,8 @@ function useDatos(){
         const { data, error } = await supabase
         .from("medicamento")
         .select("*")
-        .limit(5);
+        .limit(5)
+        .order("nombre", {ascending:true});;
 
         if (error) throw error;
 
@@ -146,8 +149,9 @@ function useDatos(){
                 nombre,
                 stock,
                 precio,
-                tipo
-            `);
+                tipo,
+                desc
+            `).order("nombre", {ascending:true});
 
             if (error) throw error;
 
@@ -156,6 +160,7 @@ function useDatos(){
                 titulo: p.nombre,
                 precio: p.precio,
                 stock: p.stock,
+                desc:p.desc,
                 categoria: p.tipo || "sin categoria"
             }));
             

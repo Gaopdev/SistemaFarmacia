@@ -7,6 +7,7 @@ type MedicamentoUI = {
     titulo: string;
     precio: number;
     stock: number;
+    desc: string;
     categoria: string;
 };
 
@@ -31,9 +32,16 @@ function InventarioComponent({products, recargar}: Props) {
             nombre: nuevoMed.titulo,
             precio: nuevoMed.precio,
             stock: nuevoMed.stock,
-            tipo: nuevoMed.categoria
+            tipo: nuevoMed.categoria,
+            desc: nuevoMed.desc
         });
         await recargar();
+            setNuevoMed({
+                titulo: "",
+                precio: 0,
+                stock: 0,
+                categoria: ""
+        });
         setModalAgregar(false);
     };
     const handleEditar = (item: MedicamentoUI) => {
@@ -46,7 +54,8 @@ function InventarioComponent({products, recargar}: Props) {
             nombre: editData.titulo,
             precio: editData.precio,
             stock: editData.stock,
-            tipo: editData.categoria
+            tipo: editData.categoria,
+            desc: editData.desc
         })
         await recargar();
         setModalOpen(false);
@@ -68,6 +77,7 @@ function InventarioComponent({products, recargar}: Props) {
                                 <h3>{p.titulo}</h3>
                                 <p>{p.categoria}</p>
                                 <p>Precio: ${p.precio}</p>
+                                <p>Descripcion: {p.desc}</p>
                                 <p className={p.stock < 10 ? "stock-rojo": "stock-normal"}>
                                     Stock: {p.stock}
                                 </p>
@@ -125,6 +135,15 @@ function InventarioComponent({products, recargar}: Props) {
                             }
                         />
 
+                        <label htmlFor="">Descripcion</label>
+                        <input
+                            value={editData.desc}
+                            placeholder="Descripcion"
+                            onChange={(e) =>
+                                setEditData({ ...editData, desc: e.target.value })
+                            }
+                        />
+
                         <div className="modal-actions">
                             <button onClick={guardarCambios}>Guardar</button>
                             <button onClick={() => setModalOpen(false)}>Cancelar</button>
@@ -173,6 +192,15 @@ function InventarioComponent({products, recargar}: Props) {
                             value={nuevoMed.categoria}
                             onChange={(e) =>
                                 setNuevoMed({ ...nuevoMed, categoria: e.target.value })
+                            }
+                        />
+
+                        <label htmlFor="">Descripcion</label>
+                        <input
+                            placeholder="Descripcion"
+                            value={nuevoMed.desc}
+                            onChange={(e) =>
+                                setNuevoMed({ ...nuevoMed, desc: e.target.value })
                             }
                         />
 
