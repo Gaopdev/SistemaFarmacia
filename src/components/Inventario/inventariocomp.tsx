@@ -26,7 +26,7 @@ function InventarioComponent({products, recargar}: Props) {
         precio: 0,
         stock: 0,
         categoria: "",
-        des: ""
+        desc: ""
     });
     const guardarNuevo = async () => {
         await agregarMedicamento({
