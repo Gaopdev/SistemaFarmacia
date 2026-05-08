@@ -11,7 +11,6 @@ type MedicamentoDB = {
     nombre: string;
     stock: number;
     precio: number;
-    id_tipo: number;
     tipo: string; 
 };
 type MedicamentoUI = {
@@ -127,7 +126,7 @@ function useDatos(){
             )
             return {
                 totalValor,
-                stockCritico};
+                stockCritico: stockCritico.length};
         }catch(error:any){
             setError(error.message);
             return {

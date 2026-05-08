@@ -4,6 +4,13 @@ import {FooterComponent} from "../components/index"
 import {InventarioComponent} from "../components/index"
 import {SearchComponent} from "../components/index"
 import useDatos from "../hooks/useDatos";
+type MedicamentoUI = {
+    id: number;
+    titulo: string;
+    precio: number;
+    stock: number;
+    categoria: string;
+};
 
 function Inventario(){
     const [products, setProducts] = useState<MedicamentoUI[]>([]);
