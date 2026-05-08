@@ -7,8 +7,8 @@ type MedicamentoUI = {
     titulo: string;
     precio: number;
     stock: number;
-    desc: string;
     categoria: string;
+    desc?: string;
 };
 
 type Props = {
